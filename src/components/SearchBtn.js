@@ -1,6 +1,8 @@
+import './SearchBtn.css'
+
 export default function SearchBtn({ title }){
   return(
-    <button type="submit">
+    <button className='search-btn' type="submit">
       {title}
     </button>
   ) 

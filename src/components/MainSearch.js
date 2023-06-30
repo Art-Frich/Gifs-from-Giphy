@@ -4,17 +4,19 @@ import ClearBtn from "./ClearBtn";
 import Grid from "./Grid";
 import PaginationPanel from "./PaginationPanel";
 
+import './MainSearch.css';
+
 export default function MainSearch(){
  return(
- <main>
-  <section>
-    <form>
-      <InputSearch />
-      <SearchBtn />
-      <ClearBtn />
+ <main className="main-search">
+  <section className="main-search__search-section">
+    <form className="main-search__search-form">
+      <InputSearch placeholder={ 'Enter your case' }/>
+      <ClearBtn title={ 'Очистить' }/>
+      <SearchBtn title={ 'Найти' }/>
     </form>
   </section>
-  <section>
+  <section className="main-search__grid-section">
     <Grid />
     <PaginationPanel />
   </section>

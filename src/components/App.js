@@ -11,9 +11,9 @@ function App() {
   return <>
     <Header />
     <Routes>
-      <Route path='/search' element={ MainSearch } />
-      <Route path='/trends' element={ MainTrends } />
-      <Route path='/random-gif' element={ MainRandomGif } />
+      <Route path='/search' element={ <MainSearch /> } />
+      <Route path='/trends' element={< MainTrends /> } />
+      <Route path='/random-gif' element={ <MainRandomGif /> } />
       <Route path='*' element={ <Navigate to='/search' />} />
     </Routes>
     <Footer />

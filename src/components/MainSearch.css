@@ -1,0 +1,10 @@
+.main-search{
+  margin: 20px auto;
+  max-width: 80vw;
+}
+
+.main-search__search-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

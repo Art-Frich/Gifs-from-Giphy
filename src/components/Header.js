@@ -11,8 +11,9 @@ export default function Header(){
         <li>
             <NavLink
               to="/search"
-              className="header__link"
-              activeClassName="header__link_active"
+              className={({ isActive }) =>
+                isActive ? "header__link header__link_active" : "header__link"
+              }
               // onClick={() => handleLinkClick('Поиск')}
             >
               Поиск
@@ -21,8 +22,9 @@ export default function Header(){
           <li>
             <NavLink
               to="/trends"
-              className="header__link"
-              activeClassName="header__link_active"
+              className={({ isActive }) =>
+                isActive ? "header__link header__link_active" : "header__link"
+              }
               // onClick={() => handleLinkClick('Тренды')}
             >
               Тренды
@@ -30,9 +32,10 @@ export default function Header(){
           </li>
           <li>
             <NavLink
-              to="/random"
-              className="header__link"
-              activeClassName="header__link_active"
+              to="/random-gif"
+              className={({ isActive }) =>
+                isActive ? "header__link header__link_active" : "header__link"
+              }
               // onClick={() => handleLinkClick('Случайный гиф')}
             >
               Случайный гиф

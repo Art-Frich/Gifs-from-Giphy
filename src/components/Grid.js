@@ -6,7 +6,5 @@ export default function Grid(){
     gridElements.push( <GridItem key={ i } />);
   }
 
-  return(
-    { gridElements } 
-  ) 
+  return gridElements;
  }
