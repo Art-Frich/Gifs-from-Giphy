@@ -8,9 +8,11 @@ export default function MainSearch(){
  return(
  <main>
   <section>
-    <InputSearch />
-    <SearchBtn />
-    <ClearBtn />
+    <form>
+      <InputSearch />
+      <SearchBtn />
+      <ClearBtn />
+    </form>
   </section>
   <section>
     <Grid />

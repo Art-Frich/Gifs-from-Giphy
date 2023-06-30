@@ -1,5 +1,7 @@
-export default function SearchBtn(){
+export default function SearchBtn({ title }){
   return(
-   
+    <button type="submit">
+      {title}
+    </button>
   ) 
  }
