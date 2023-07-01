@@ -1,15 +1,21 @@
 .search-btn {
-  text-align: center;
-  color: #fff;
-  width: 170px;
-  height: 54px;
-  font-size: 20px;
+
+  min-width: 65px;
+  height: 65px;
+  padding: 0;
   
-  border: 0;
-  border-radius: 3px;
+  border: 3px solid #000;
+  border-radius: 5px;
   
-  background-color: #000;
+  background-color: #fff;
   transition: opacity .1s linear;
+
+  background-image: url(../images/loupe.svg);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  cursor: pointer;
 }
 
 .search-btn:hover {

@@ -12,8 +12,8 @@ export default function MainSearch(){
   <section className="main-search__search-section">
     <form className="main-search__search-form">
       <InputSearch placeholder={ 'Enter your case' }/>
-      <ClearBtn title={ 'Очистить' }/>
-      <SearchBtn title={ 'Найти' }/>
+      <ClearBtn />
+      <SearchBtn />
     </form>
   </section>
   <section className="main-search__grid-section">
