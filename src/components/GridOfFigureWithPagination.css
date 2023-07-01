@@ -1,0 +1,5 @@
+.grid-of-figure-with-pagination{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

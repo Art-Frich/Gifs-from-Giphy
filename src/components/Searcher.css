@@ -1,9 +1,4 @@
-.main-search{
-  margin: 20px 0;
-  max-width: 100%;
-}
-
-.main-search__search-form{
+.searcher__form{
   display: flex;
   flex-direction: row;
   justify-content: space-between;

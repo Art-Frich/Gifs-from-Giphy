@@ -2,5 +2,8 @@
   min-height: 40px;
   width: 100%;
 
+  /* двигаем текст внутри input от краёв */
+  padding: 2px 8px;
+
   font-size: 22px;
 }

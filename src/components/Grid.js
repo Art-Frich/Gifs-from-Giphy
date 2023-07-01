@@ -1,10 +1,16 @@
-import GridItem from './GridItem.js';
+import Figure from './Figure.js';
+
+import './Grid.css';
 
 export default function Grid(){
   const gridElements = [];
-  for ( let i = 0; i < 20; i++ ){
-    gridElements.push( <GridItem key={ i } />);
+  for ( let i = 0; i < 12; i++ ){
+    gridElements.push( <Figure key={ i } alt={''} src={''} title={''}/>);
   }
 
-  return gridElements;
+  return(
+    <div className='grid'>
+      {gridElements}
+    </div>
+  );
  }
