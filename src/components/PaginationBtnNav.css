@@ -1,0 +1,19 @@
+.pagination-btn-nav{
+  padding: 0;
+
+  border: none;
+  
+  background-color: transparent;
+  transition: opacity .1s linear;
+
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  cursor: pointer;
+}
+
+.pagination-btn-nav:hover {
+  opacity: 0.7;
+}

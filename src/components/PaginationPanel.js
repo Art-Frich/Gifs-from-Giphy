@@ -1,15 +1,17 @@
 import PaginationBtnNav from "./PaginationBtnNav";
 import PaginationElement from "./PaginationElement";
 
+import './PaginationPanel.css';
+
 export default function PaginationPanel(){
   const paginationElements = [];
   for (let i = 1; i <= 8; i++) {
-    paginationElements.push(<PaginationElement key={i} />);
+    paginationElements.push(<PaginationElement key={i} title={i} />);
   }
 
-  return(<>
-    <PaginationBtnNav>Назад</PaginationBtnNav>
+  return(<div className="PaginationPanel">
+    <PaginationBtnNav title={'Назад'}/>
     {paginationElements}
-    <PaginationBtnNav>Вперёд</PaginationBtnNav>
-  </>) 
+    <PaginationBtnNav title={'Вперёд'}/>
+  </div>) 
  }
