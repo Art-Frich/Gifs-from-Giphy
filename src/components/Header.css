@@ -31,7 +31,8 @@
 
 .header__link{
   display: block;
-  min-width: 20vw;
+  max-width: calc(1280px / 3);
+  width: 20vw;
 
   text-align: center;
 
