@@ -1,6 +1,6 @@
-import Searcher from './Searcher';
-import GridOfFigureWithPagination from './GridOfFigureWithPagination';
-import Figure from './Figure';
+import Searcher from './main-elements/Searcher';
+import GridOfFigureWithPagination from './main-elements/GridOfFigureWithPagination';
+import Figure from './main-elements/Figure';
 
 import './Main.css';
 
