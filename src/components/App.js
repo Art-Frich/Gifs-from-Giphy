@@ -48,6 +48,7 @@ function App() {
       getRandomGif={ getRandomGif }
       getTrendingGifs={ getTrendingGifs }
       getSearchGifs={ getSearchGifs }
+      isLoading={ isLoading }
     />
     <Footer />
   </>;

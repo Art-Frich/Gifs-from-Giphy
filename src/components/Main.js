@@ -6,7 +6,7 @@ import Figure from './main-elements/Figure';
 import Loader from './main-elements/Loader';
 import './Main.css';
 
-export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs }) {
+export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isLoading }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [query, setQuery] = useState('');
@@ -45,20 +45,24 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs }) {
             query={ query }
             setGifs={ setSearchGifs }
           />
-          <GridOfFigureWithPagination
+          { isLoading 
+          ? <Loader /> 
+          : <GridOfFigureWithPagination
             gifs={ searchGifs }
-            // currentPage={ currentPage }
-            // totalPages={ totalPages }
-            // onPageChange={ handlePageChange }
-          />
+            // currentPage={currentPage}
+            // totalPages={totalPages}
+            // onPageChange={handlePageChange}
+          />}
         </> } />
 
         <Route path="/trends" element={
-          <GridOfFigureWithPagination
-            gifs={trendGifs}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
+          isLoading 
+          ? <Loader /> 
+          : <GridOfFigureWithPagination
+            gifs={ trendGifs }
+            // currentPage={currentPage}
+            // totalPages={totalPages}
+            // onPageChange={handlePageChange}
           />
         } />
 
