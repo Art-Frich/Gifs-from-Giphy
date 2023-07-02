@@ -5,8 +5,6 @@ import GridOfFigureWithPagination from './main-elements/GridOfFigureWithPaginati
 import Figure from './main-elements/Figure';
 import './Main.css';
 
-
-
 export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -18,8 +16,7 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs }) {
 
   const location = useLocation();
 
-
-  async function handlePageChange(newPage) {
+  async function handlePageChange( newPage ) {
     // setCurrentPage(newPage);
     // try {
     //   const data = searchQuery

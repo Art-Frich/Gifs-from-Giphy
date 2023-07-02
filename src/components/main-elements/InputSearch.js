@@ -1,5 +1,5 @@
-import './InputSearch.css';
 import { forwardRef, useEffect } from 'react';
+import './InputSearch.css';
 
 function InputSearch({ placeholder, onChange, value }, ref ){
 
@@ -8,7 +8,7 @@ function InputSearch({ placeholder, onChange, value }, ref ){
   // eslint-disable-next-line
   }, [])
 
-  return(<input
+  return( <input
     type="text"
     className='search-input'
     placeholder={placeholder}

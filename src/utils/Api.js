@@ -6,17 +6,17 @@ export default class Api {
       this.cntTrendsGif = cntTrendsGif;
     }
   
-    getSearchGifs = async (query, limit = this.cntSearchGif, offset = 0) => {
+    getSearchGifs = async ({ query, limit = this.cntSearchGif, offset = 0 }) => {
       const url = `${this.baseUrl}/search?api_key=${this.apiKey}&q=${query}&limit=${limit}&offset=${offset}`;
       return this._handleFetch( url );
     }
   
-    getTrendingGifs = async (query, limit = this.cntTrendsGif, offset = 0) => {
+    getTrendingGifs = async ({ limit = this.cntTrendsGif, offset = 0 }) => {
       const url = `${this.baseUrl}/trending?api_key=${this.apiKey}&limit=${limit}&offset=${offset}`;
       return this._handleFetch( url );
     }
   
-    getRandomGif = async ( query ) => {
+    getRandomGif = async () => {
       const url = `${this.baseUrl}/random?api_key=${this.apiKey}`;
       return this._handleFetch( url );
     }
@@ -30,4 +30,3 @@ export default class Api {
       return data;
     }
   }
-  

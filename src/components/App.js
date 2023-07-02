@@ -11,7 +11,7 @@ const api = new Api( cntTrendsGif, cntSearchGif )
 
 function App() {
   const [ isLoading, setIsLoading ] = useState( false ); //пригодится для loader-а
-  const [ isSuccessfulFetch, setIsSuccessfulFetch ] = useState( false ); // отобразить гифки или ошибку, пока только s
+  const [ isSuccessfulFetch, setIsSuccessfulFetch ] = useState( false ); 
 
   async function getSearchGifs( query, saveData ) {
     getDataFromApi( api.getSearchGifs, saveData, query );
@@ -30,7 +30,7 @@ function App() {
     // setCurrentPage(0);
       setIsLoading( true );
       setIsSuccessfulFetch( false ); //обнулить предыдущее состояние
-      const data = await apiQuery( query );
+      const data = await apiQuery({ query });
       saveData( data.data );
       // setTotalPages(Math.ceil(data.pagination.total_count / data.pagination.count));
       setIsSuccessfulFetch( true )
