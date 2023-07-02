@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import './Figure.css';
 
-export default function Figure({ gif, url }) {
+export default function Figure({ title, url }) {
   const location = useLocation();
 
   const imageStyle = {
@@ -13,8 +13,8 @@ export default function Figure({ gif, url }) {
   
   return (
     <figure className="figure">
-      <img className="figure__img" alt={ gif.title} src={ url } style={imageStyle} />
-      <figcaption className="figure__figcaption">{ gif.title || "just gif =)" }</figcaption>
+      <img className="figure__img" alt={ title || "just gif =)" } src={ url } style={imageStyle} />
+      <figcaption className="figure__figcaption">{ title || "just gif =)" }</figcaption>
     </figure>
   );
 }

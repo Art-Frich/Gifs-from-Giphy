@@ -1,10 +1,10 @@
 export default class Api {
-    constructor(apiKey) {
-      this.apiKey = apiKey;
+    constructor() {
+      this.apiKey = 'lMKZLF0RM4UWvP0AACmvzURIOnkMxD2y';
       this.baseUrl = 'https://api.giphy.com/v1/gifs';
     }
   
-    async searchGifs(query, limit = 25, offset = 0) {
+    async searchGifs(query, limit = 9, offset = 0) {
       const url = `${this.baseUrl}/search?api_key=${this.apiKey}&q=${query}&limit=${limit}&offset=${offset}`;
       const response = await fetch(url);
       if (!response.ok) {

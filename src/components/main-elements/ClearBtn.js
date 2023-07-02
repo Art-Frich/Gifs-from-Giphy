@@ -1,8 +1,10 @@
 import './ClearBtn.css';
 
-export default function ClearBtn({title}){
+export default function ClearBtn({ onClick }){
 
-  return(
-    <button className='clear-btn' type="button" />
-  ) 
+  return(<button 
+    className='clear-btn' 
+    type="button" 
+    onClick={ onClick } 
+  /> ) 
  }
