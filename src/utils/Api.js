@@ -1,36 +1,32 @@
 export default class Api {
-    constructor() {
+    constructor( cntTrendsGif, cntSearchGif ) {
       this.apiKey = 'lMKZLF0RM4UWvP0AACmvzURIOnkMxD2y';
       this.baseUrl = 'https://api.giphy.com/v1/gifs';
+      this.cntSearchGif = cntSearchGif;
+      this.cntTrendsGif = cntTrendsGif;
     }
   
-    async searchGifs(query, limit = 9, offset = 0) {
+    getSearchGifs = async (query, limit = this.cntSearchGif, offset = 0) => {
       const url = `${this.baseUrl}/search?api_key=${this.apiKey}&q=${query}&limit=${limit}&offset=${offset}`;
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`An error occurred: ${response.statusText}`);
-      }
-      const data = await response.json();
-      return data;
+      return this._handleFetch( url );
     }
   
-    async getTrendingGifs(limit = 9, offset = 0) {
+    getTrendingGifs = async (query, limit = this.cntTrendsGif, offset = 0) => {
       const url = `${this.baseUrl}/trending?api_key=${this.apiKey}&limit=${limit}&offset=${offset}`;
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`An error occurred: ${response.statusText}`);
-      }
-      const data = await response.json();
-      return data;
+      return this._handleFetch( url );
     }
   
-    async getRandomGif() {
+    getRandomGif = async ( query ) => {
       const url = `${this.baseUrl}/random?api_key=${this.apiKey}`;
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`An error occurred: ${response.statusText}`);
+      return this._handleFetch( url );
+    }
+
+    async _handleFetch( url ){
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`An error occurred: ${res.statusText}`);
       }
-      const data = await response.json();
+      const data = await res.json();
       return data;
     }
   }

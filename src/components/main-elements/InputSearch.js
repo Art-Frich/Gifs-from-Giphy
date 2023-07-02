@@ -1,7 +1,13 @@
 import './InputSearch.css';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 
-function InputSearch({ placeholder, onChange }, ref ){
+function InputSearch({ placeholder, onChange, value }, ref ){
+
+  useEffect( () => {
+    ref.current.value = value;
+  // eslint-disable-next-line
+  }, [])
+
   return(<input
     type="text"
     className='search-input'
