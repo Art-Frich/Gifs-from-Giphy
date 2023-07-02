@@ -1,13 +1,20 @@
-import { Link } from 'react-router-dom';
-
+import { useLocation } from 'react-router-dom';
 import './Figure.css';
 
-export default function Figure({ title, subtitle, alt, src, id }) {
+export default function Figure({ gif, url }) {
+  const location = useLocation();
+
+  const imageStyle = {
+    width: location.pathname === '/random-gif' ? '100%' : 'auto',
+    maxWidth: location.pathname === '/random-gif'  ? '1280px' : '100%',
+    height: location.pathname === '/random-gif'  ? 'auto' : '300px',
+    maxHeight: location.pathname === '/random-gif' ? '960px' : '100%'
+  };
+  
   return (
-    <figure className="grid-item">
-      <Link to={`/gif/${id}`}>
-        <img className="grid-item__img" alt={alt} src={src} />
-      </Link>
+    <figure className="figure">
+      <img className="figure__img" alt={ gif.title} src={ url } style={imageStyle} />
+      <figcaption className="figure__figcaption">{ gif.title ?? "just gif =)" }</figcaption>
     </figure>
   );
 }

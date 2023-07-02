@@ -14,7 +14,7 @@ export default class Api {
       return data;
     }
   
-    async getTrendingGifs(limit = 25, offset = 0) {
+    async getTrendingGifs(limit = 9, offset = 0) {
       const url = `${this.baseUrl}/trending?api_key=${this.apiKey}&limit=${limit}&offset=${offset}`;
       const response = await fetch(url);
       if (!response.ok) {

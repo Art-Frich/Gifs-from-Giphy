@@ -6,9 +6,8 @@ export default function Grid({ gifs }) {
   const gridElements = gifs.map((gif) => (
     <Figure
       key={gif.id}
-      alt={gif.title}
-      src={gif.images.fixed_height.url}
-      title={gif.title}
+      gif={gif}
+      url={gif.images.downsized_medium.url}
     />
   ));
 
