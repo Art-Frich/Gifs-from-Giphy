@@ -3,7 +3,5 @@
   /* чтобы на пустом экране низ был снизу */
   min-height: 50vh;
 
-  display: flex;
-  flex-direction: column;
-  gap: 30px
+  position: relative;
 }

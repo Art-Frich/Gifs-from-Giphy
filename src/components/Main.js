@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Searcher from './main-elements/Searcher';
 import GridOfFigureWithPagination from './main-elements/GridOfFigureWithPagination';
 import Figure from './main-elements/Figure';
+import Loader from './main-elements/Loader';
 import './Main.css';
 
 export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs }) {
@@ -65,7 +66,7 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs }) {
         // по задумке он выберет или самое большое разрешение (раз одна гифка на весь экран) или оригинальное
         // если гифка пока не скачалась - отрисуй пустой блок => избавит от предупреждений react на счёт пустого роута */}
         <Route path="/random-gif" element={ 
-          !selectedGif.images ? <></> :
+          !selectedGif.images ? <Loader /> :
           <Figure 
             title={ selectedGif.title } 
             url={ selectedGif.images.hd?.url ?? selectedGif.images.original.url } 

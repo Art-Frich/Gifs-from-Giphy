@@ -9,6 +9,7 @@
 
   background-color: #918d8d;
   border: #000 2px solid;
+  box-sizing: border-box;
 }
 
 .figure__img{
