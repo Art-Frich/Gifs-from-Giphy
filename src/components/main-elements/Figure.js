@@ -14,7 +14,7 @@ export default function Figure({ gif, url }) {
   return (
     <figure className="figure">
       <img className="figure__img" alt={ gif.title} src={ url } style={imageStyle} />
-      <figcaption className="figure__figcaption">{ gif.title ?? "just gif =)" }</figcaption>
+      <figcaption className="figure__figcaption">{ gif.title || "just gif =)" }</figcaption>
     </figure>
   );
 }
