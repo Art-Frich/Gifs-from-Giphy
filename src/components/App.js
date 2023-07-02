@@ -31,6 +31,7 @@ function App() {
       setIsLoading( true );
       setIsSuccessfulFetch( false ); //обнулить предыдущее состояние
       const data = await apiQuery({ query });
+      console.log( data )
       saveData( data.data );
       // setTotalPages(Math.ceil(data.pagination.total_count / data.pagination.count));
       setIsSuccessfulFetch( true )
