@@ -1,3 +1,13 @@
+:root {
+  --link-color: #000;
+  --background-color: #fff;
+}
+
+.dark-mode {
+  --link-color: #fff;
+  --background-color: #000;
+}
+
 .body {
   margin: 0 auto;
   max-width: 1280px;
@@ -7,6 +17,9 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  background-color: var(--background-color);
 }
 
 code {
