@@ -42,7 +42,6 @@
   background-color: var(--color);
   border-radius: 5px;
 
-  z-index: 2;
   cursor: default;
 
   display: flex;
@@ -77,6 +76,7 @@
 
 .burger-menu_open .burger-menu__line_type_middle {
   opacity: 0;
+  z-index: -1;
 }
 
 .burger-menu_open .burger-menu__line_type_bottom {
@@ -85,6 +85,7 @@
 
 .burger-menu_open .burger-menu__dropdown{
   opacity: 1;
+  z-index: 1;
 }
 
 @media (max-width: 425px) {
