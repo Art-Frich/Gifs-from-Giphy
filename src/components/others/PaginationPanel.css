@@ -5,3 +5,15 @@
   justify-content: center;
   gap: 40px;
 }
+
+@media screen and (max-width:  950px){
+  .PaginationPanel{
+    gap: 20px
+  }
+}
+
+@media screen and (max-width:  576px){
+  .PaginationPanel{
+    gap: 14px
+  }
+}

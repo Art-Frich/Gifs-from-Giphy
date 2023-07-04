@@ -40,7 +40,7 @@
   padding: 10px;
 
   background-color: var(--color);
-  border-radius: 5px;
+  border-radius: 2px;
 
   cursor: default;
 
@@ -88,13 +88,18 @@
   z-index: 1;
 }
 
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
+
   .burger-mune__item-title {
     font-size: 18px;
   }
+
   .burger-menu__dropdown{
-  right: auto;
-  left: -130px;
-  top: calc(10px + var(--size-menu-burger));
-  transform: translateX(-50%);}
+    right: 0;
+    top: calc(10px + var(--size-menu-burger));
+  }
+
+  .burger-menu__item{
+    font-size: 0.7em;
+  } 
 }

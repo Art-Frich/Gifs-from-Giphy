@@ -51,7 +51,7 @@
   max-width: 50px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .figure__figcaption {
     font-size: 1em;
   }

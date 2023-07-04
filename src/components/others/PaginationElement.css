@@ -25,3 +25,9 @@
 .pagination-element_active{
   color: #EA5400;
 }
+
+@media screen and (max-width:  767px){
+  .pagination-element{
+    font-size: 0.9em;
+  }
+}
