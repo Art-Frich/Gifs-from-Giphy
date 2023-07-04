@@ -13,6 +13,6 @@
   font-weight: 400;
   line-height: normal;
 
-  color: #000;
+  color: var(--color);
 }
 

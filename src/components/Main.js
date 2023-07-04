@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Searcher from './main-elements/Searcher';
-import GridOfFigureWithPagination from './main-elements/GridOfFigureWithPagination';
-import Figure from './main-elements/Figure';
-import Loader from './main-elements/Loader';
+import Searcher from './others/Searcher';
+import GridOfFigureWithPagination from './others/GridOfFigureWithPagination';
+import Figure from './others/Figure';
+import Loader from './others/Loader';
 import './Main.css';
 
 export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isLoading }) {

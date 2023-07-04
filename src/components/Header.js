@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import ThemeToggleElement from "./ThemeToggleElement";
+import ThemeToggleElement from "./others/ThemeToggleElement";
 import "./Header.css";
 
 export default function Header({ isDarkMode, setIsDarkMode }) {

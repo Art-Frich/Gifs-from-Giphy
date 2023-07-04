@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import InputSearch from './InputSearch';
+import Input from './Input';
 import SearchBtn from './SearchBtn';
 import ClearBtn from './ClearBtn';
 import './Searcher.css';
@@ -25,7 +25,7 @@ export default function Searcher({ onSearch, setQuery, query, setGifs }) {
   return (
     <section className="searcher">
       <form className="searcher__form" onSubmit={handleSubmit}>
-        <InputSearch
+        <Input
           placeholder={'Enter your case'}
           value={ query }
           onChange={ onChange }

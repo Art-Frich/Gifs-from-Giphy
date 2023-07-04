@@ -1,7 +1,7 @@
 import { forwardRef, useEffect } from 'react';
-import './InputSearch.css';
+import './Input.css';
 
-function InputSearch({ placeholder, onChange, value }, ref ){
+function Input({ placeholder, onChange, value }, ref ){
 
   useEffect( () => {
     ref.current.value = value;
@@ -18,4 +18,4 @@ function InputSearch({ placeholder, onChange, value }, ref ){
  }
 
  // forwardRef - декоратор позволяет передавать в inputSeatch ref-параметр
- export default forwardRef(InputSearch);
+ export default forwardRef(Input);

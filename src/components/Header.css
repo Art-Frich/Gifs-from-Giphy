@@ -25,6 +25,8 @@
   line-height: normal;
   letter-spacing: 4px;
   color: var(--color);
+
+  transition: color .2s ease;
 }
 
 .header__links{
