@@ -36,6 +36,7 @@ function App() {
     // setCurrentPage(0);
       setIsLoading( true );
       setIsSuccessfulFetch( false ); //обнулить предыдущее состояние
+      saveData( null );
       const data = await apiQuery({ query });
       saveData( data.data );
       // setTotalPages(Math.ceil(data.pagination.total_count / data.pagination.count));

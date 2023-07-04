@@ -11,7 +11,7 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isL
   const [totalPages, setTotalPages] = useState(0);
   const [query, setQuery] = useState('');
 
-  const [ selectedGif, setSelectedGif ] = useState( {} );
+  const [ selectedGif, setSelectedGif ] = useState( null );
   const [ trendGifs, setTrendGifs ] = useState( [] );
   const [ searchGifs, setSearchGifs ] = useState( [] );
 
@@ -69,7 +69,7 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isL
         {/* {/* // не знаю, стоит ли ключ давать одному элементу, но закинул - надо погуглить
         // по задумке он выберет или самое большое разрешение (раз одна гифка на весь экран) или оригинальное */}
         <Route path="/random-gif" element={ 
-          !selectedGif.images ? <Loader /> :
+          isLoading ? <Loader /> : !selectedGif ? <></> :
           <Figure 
             title={ selectedGif.title } 
             url={ selectedGif.images.hd?.url ?? selectedGif.images.original.url } 
