@@ -41,6 +41,7 @@ export default function Main({
           : !isSuccessfulFetch && !searchGifs ? <Error /> 
           : <GridOfFigureWithPagination
             gifs={ searchGifs }
+            gifsState={ gifsState }
           />}
         </> } />
 
@@ -50,6 +51,7 @@ export default function Main({
           : !isSuccessfulFetch ? <Error /> 
           : <GridOfFigureWithPagination
             gifs={ trendGifs }
+            gifsState={ gifsState }
           />
         } />
 

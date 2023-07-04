@@ -22,8 +22,10 @@ export default function BurgerMenu({gifsState, setGifsState}) {
           <Input
             placeholder={'9?'} 
             onChange={ (e) => setGifsState( prevState => ({ 
-              ...prevState, cntSearchGifs: Number(e.target.value) > 0 && Number(e.target.value) < 51 
-                ? Number(e.target.value) : 50
+              ...prevState, cntSearchGifs: 
+                Number(e.target.value) < 1 
+                ? 1 : Number(e.target.value) > 50 
+                ? 50: Number(e.target.value) 
             })) }
             value={ gifsState.cntSearchGifs }
             type='number'
@@ -34,8 +36,10 @@ export default function BurgerMenu({gifsState, setGifsState}) {
           <Input
             placeholder={'9?'} 
             onChange={ (e) => setGifsState( prevState => ({ 
-              ...prevState, cntTrendsGifs: Number(e.target.value) > 0 && Number(e.target.value) < 51 
-                ? Number(e.target.value) : 50
+              ...prevState, cntTrendsGifs: 
+                Number(e.target.value) < 1 
+                ? 1 : Number(e.target.value) > 50 
+                ? 50: Number(e.target.value) 
             })) }
             value={ gifsState.cntTrendsGifs }
             type='number'
@@ -46,10 +50,12 @@ export default function BurgerMenu({gifsState, setGifsState}) {
           <Input
             placeholder={'9?'} 
             onChange={ (e) => setGifsState( prevState => ({ 
-              ...prevState, cntsGifsOnPage: Number(e.target.value) > 0 && Number(e.target.value) < 51 
-                ? Number(e.target.value) : 50
+              ...prevState, cntGifsOnPage: 
+                Number(e.target.value) < 1 
+                ? 1 : Number(e.target.value) > 50 
+                ? 50: Number(e.target.value) 
             })) }
-            value={ gifsState.cntsGifsOnPage }
+            value={ gifsState.cntGifsOnPage }
             type='number'
           />
         </li>

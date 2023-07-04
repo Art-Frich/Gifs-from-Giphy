@@ -9,7 +9,7 @@ function App() {
   const [gifsState, setGifsState] = useState({
     cntTrendsGifs: 9,
     cntSearchGifs: 9,
-    cntsGifsOnPage: 9
+    cntGifsOnPage: 9
   });
 
   const [ isLoading, setIsLoading ] = useState( false );
@@ -33,13 +33,11 @@ function App() {
 
   async function getDataFromApi( apiQuery, saveData, query ){
     try {
-    // setCurrentPage(0);
       setIsLoading( true );
       setIsSuccessfulFetch( false ); //обнулить предыдущее состояние
       saveData( null );
       const data = await apiQuery({ query });
       saveData( data.data );
-      // setTotalPages(Math.ceil(data.pagination.total_count / data.pagination.count));
       setIsSuccessfulFetch( true )
     } catch ( error ) {
       setIsSuccessfulFetch( false )

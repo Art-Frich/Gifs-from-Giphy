@@ -2,8 +2,9 @@ import React from 'react';
 import Figure from './Figure.js';
 import './Grid.css';
 
-export default React.memo(function Grid({ gifs }) {
-  const gridElements = gifs?.map((gif) => (
+export default (function Grid({ gifs, curPageIndex, gifsOnPage }) {
+  const gridElements = gifs?.slice( curPageIndex * gifsOnPage, gifsOnPage )
+  .map((gif) => (
     <Figure
       key={ gif.id }
       title={ gif.title }
