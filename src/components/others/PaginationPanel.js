@@ -4,7 +4,7 @@ import PaginationElement from './PaginationElement';
 import './PaginationPanel.css';
 
 export default function PaginationPanel({
-  cntPages, curPageIndex
+  cntPages, curPageIndex, setPrevPage, setNextPage, setCurPageIndex
 }) {
   const paginationElements = [];
   for (let i = 1; i <= cntPages; i++) {
@@ -12,8 +12,9 @@ export default function PaginationPanel({
       <PaginationElement
         key={i}
         title={i}
-        // onClick={() => onPageChange(i - 1)}
-        // isActive={i === currentPage + 1}
+        index={ i - 1 }
+        curPageIndex={ curPageIndex }
+        onClick={ () => setCurPageIndex( i - 1 ) }
       />
     );
   }
@@ -21,11 +22,13 @@ export default function PaginationPanel({
   return (
     <div className="PaginationPanel">
       <PaginationBtnNav title={'Назад'} 
-      // onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 0} 
+        onClick={ setPrevPage } 
+        disabled={ curPageIndex === 0 } 
       />
       {paginationElements}
       <PaginationBtnNav title={'Вперёд'} 
-      // onClick={() => onPageChange(currentPage + 1)} disabled={currentPage === totalPages - 1} 
+        onClick={ setNextPage } 
+        disabled={ curPageIndex === cntPages - 1} 
       />
     </div>
   );

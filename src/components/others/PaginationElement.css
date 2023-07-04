@@ -5,16 +5,22 @@
   border: none;
   
   background-color: transparent;
-  transition: opacity .1s linear;
+  transition: opacity .1s linear, color .1s ease;
 
-  font-size: 1em;
+  font-size: 1.1em;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: normal;
+  color: var(--color);
 
   cursor: pointer;
 }
 
 .pagination-element:hover {
   opacity: 0.7;
+  color: #EA5400;
+}
+
+.pagination-element_active{
+  color: #EA5400;
 }
