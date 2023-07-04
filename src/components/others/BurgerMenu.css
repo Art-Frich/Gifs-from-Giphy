@@ -86,3 +86,14 @@
 .burger-menu_open .burger-menu__dropdown{
   opacity: 1;
 }
+
+@media (max-width: 425px) {
+  .burger-mune__item-title {
+    font-size: 18px;
+  }
+  .burger-menu__dropdown{
+  right: auto;
+  left: -130px;
+  top: calc(10px + var(--size-menu-burger));
+  transform: translateX(-50%);}
+}
