@@ -35,7 +35,6 @@
 .burger-menu__dropdown{
   position: absolute;
   right: calc( 10px + var(--size-menu-burger ));
-  /* left: calc( -280px - var(--size-menu-burger)); */
   top: calc( 0px - var(--size-menu-burger));
 
   padding: 10px;

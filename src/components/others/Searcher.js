@@ -25,6 +25,7 @@ export default function Searcher({ onSearch, setQuery, query, setGifs }) {
           placeholder={'Enter your case'}
           value={ query }
           onChange={ onChange }
+          type='text'
         />
         <ClearBtn onClick={ handleClear } />
         <SearchBtn />

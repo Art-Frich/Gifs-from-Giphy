@@ -1,6 +1,7 @@
-.search-input{
+.input{
   min-height: 40px;
   width: 100%;
+  min-width: 100px;
 
   /* двигаем текст внутри input от краёв */
   padding: 2px 8px;
