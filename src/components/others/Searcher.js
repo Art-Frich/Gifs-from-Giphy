@@ -1,12 +1,9 @@
-import { useRef } from 'react';
 import Input from './Input';
 import SearchBtn from './SearchBtn';
 import ClearBtn from './ClearBtn';
 import './Searcher.css';
 
 export default function Searcher({ onSearch, setQuery, query, setGifs }) {
-  const inputRef = useRef();
-
   function handleSubmit( e ) {
     e.preventDefault();
     onSearch( query, setGifs );
@@ -15,7 +12,6 @@ export default function Searcher({ onSearch, setQuery, query, setGifs }) {
   function handleClear() {
     setQuery('');
     setGifs( [] );
-    inputRef.current.value = '';
   }
 
   function onChange( e ){
@@ -29,7 +25,6 @@ export default function Searcher({ onSearch, setQuery, query, setGifs }) {
           placeholder={'Enter your case'}
           value={ query }
           onChange={ onChange }
-          ref={ inputRef }
         />
         <ClearBtn onClick={ handleClear } />
         <SearchBtn />

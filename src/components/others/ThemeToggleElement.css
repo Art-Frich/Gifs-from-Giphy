@@ -1,7 +1,7 @@
 
 .checkbox {
-  --width: 140px;
-  --height: 70px;
+  --width: calc( var(--theme-toggle-button-size) * 2 );
+  --height: var(--theme-toggle-button-size);
   --offset: 8px;
   --first-color: #000;
   --second-color: #fff;

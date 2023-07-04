@@ -5,16 +5,19 @@ import Footer from './Footer';
 import Api from '../utils/Api';
 import './App.css';
 
-const cntTrendsGif = 9;
-const cntSearchGif = 9;
-const api = new Api( cntTrendsGif, cntSearchGif )
-
 function App() {
+  const [gifsState, setGifsState] = useState({
+    cntTrendsGifs: 9,
+    cntSearchGifs: 9,
+    cntsGifsOnPage: 9
+  });
+
   const [ isLoading, setIsLoading ] = useState( false );
   const [ isSuccessfulFetch, setIsSuccessfulFetch ] = useState( false ); 
   const [ isDarkMode, setIsDarkMode ] = useState( window.matchMedia('(prefers-color-scheme: dark)').matches );
 
   const body = document.querySelector('.body');
+  const api = new Api( gifsState );
 
   async function getSearchGifs( query, saveData ) {
     getDataFromApi( api.getSearchGifs, saveData, query );
@@ -49,12 +52,16 @@ function App() {
     isDarkMode
     ? body.classList.add("dark-mode")
     : body.classList.remove("dark-mode")
+  // eslint-disable-next-line
   }, [ isDarkMode ] )
 
   return <>
     <Header 
       isDarkMode={ isDarkMode } 
-      setIsDarkMode={ setIsDarkMode } />
+      setIsDarkMode={ setIsDarkMode } 
+      gifsState={ gifsState }
+      setGifsState={ setGifsState }
+    />
     <Main 
       getRandomGif={ getRandomGif }
       getTrendingGifs={ getTrendingGifs }

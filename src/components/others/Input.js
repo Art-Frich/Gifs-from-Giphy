@@ -1,21 +1,11 @@
-import { forwardRef, useEffect } from 'react';
 import './Input.css';
 
-function Input({ placeholder, onChange, value }, ref ){
-
-  useEffect( () => {
-    ref.current.value = value;
-  // eslint-disable-next-line
-  }, [])
-
+export default function Input({ placeholder, onChange, value }){
   return( <input
     type="text"
     className='search-input'
     placeholder={placeholder}
-    onChange={ onChange } 
-    ref={ ref } 
+    onChange={ onChange }
+    value={ value }
   />) 
- }
-
- // forwardRef - декоратор позволяет передавать в inputSeatch ref-параметр
- export default forwardRef(Input);
+}

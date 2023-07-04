@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './ThemeToggleElement.css';
 
 export default function ThemeToggleElement({ state, setState }){

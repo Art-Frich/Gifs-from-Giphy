@@ -1,0 +1,89 @@
+:root{
+  /* 1.35 = почти квадратный корень, только выглядит ровнее почему-то */
+  /* /4 = т.к. смещение по х и у накладывается друг на друга, поэтому фактически смещение центра на половину высоты, но т.к. смещение одновременно по 2-м осям, которым повёрнуты на 45, то /2 и ещё раз /2 => /4 */
+  --shift: calc( var(--size-menu-burger) * 1.35 / 4);
+}
+
+.burger-menu {
+  position: relative;
+
+  width: var(--size-menu-burger);
+  height: var(--size-menu-burger);
+
+  cursor: pointer;
+
+}
+
+.burger-menu__icon {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.burger-menu__line {
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--color);
+  transition: transform .3s ease, opacity .2s ease;
+}
+
+.burger-menu__dropdown{
+  position: absolute;
+  right: calc( 10px + var(--size-menu-burger ));
+  /* left: calc( -280px - var(--size-menu-burger)); */
+  top: calc( 0px - var(--size-menu-burger));
+
+  padding: 10px;
+
+  background-color: var(--color);
+  border-radius: 5%;
+
+  z-index: 2;
+  cursor: default;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  list-style: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.burger-mune__item-title{
+  font-size: 22px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+}
+
+.burger-menu__item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  font-size: 1em;
+  color: var(--colorInBox);
+}
+
+.burger-menu_open .burger-menu__line_type_top {
+  transform: rotate(45deg) translate( var(--shift), var(--shift));
+}
+
+.burger-menu_open .burger-menu__line_type_middle {
+  opacity: 0;
+}
+
+.burger-menu_open .burger-menu__line_type_bottom {
+  transform: rotate(-45deg) translate( var(--shift), calc( 0px - var(--shift)));
+}
+
+.burger-menu_open .burger-menu__dropdown{
+  opacity: 1;
+}

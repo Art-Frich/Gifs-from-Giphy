@@ -1,13 +1,17 @@
 :root {
   --link-color: #000;
   --background-color: #fff;
+  --colorInBox: #fff;
   --color: #000;
+  --size-menu-burger: 52px;
+  --theme-toggle-button-size: var(--size-menu-burger);
 }
 
 .dark-mode {
   --link-color: #fff;
   --background-color: #000;
   --color: #fff;
+  --colorInBox: #000;
 }
 
 .body {
