@@ -5,7 +5,6 @@ import './GridOfFigureWithPagination.css';
 
 export default function GridOfFigureWithPagination({ gifs, gifsState }) {
 
-  const [ gifsOnPage, setGifsOnPage ] = useState( gifsState.cntGifsOnPage );
   const [ curPageIndex, setCurPageIndex ] = useState( 0 );
   const [ cntPages, setCntPages ] = useState( 0 );
 
@@ -22,14 +21,13 @@ export default function GridOfFigureWithPagination({ gifs, gifsState }) {
   };
 
   useEffect(() => {
-    setGifsOnPage( gifsState.cntGifsOnPage );
-    setCntPages( Math.ceil( gifs.length / gifsOnPage ) )
+    setCntPages( Math.ceil( gifs.length / gifsState.cntGifsOnPage ) )
   // eslint-disable-next-line
   }, [gifsState])
 
   return (
     <section className='grid-of-figure-with-pagination'>
-      <Grid gifs={gifs} curPageIndex={ curPageIndex } gifsOnPage={ gifsOnPage }/>
+      <Grid gifs={gifs} curPageIndex={ curPageIndex } gifsOnPage={ gifsState.cntGifsOnPage }/>
       {cntPages 
       ? <PaginationPanel 
         cntPages={ cntPages } 

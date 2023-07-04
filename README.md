@@ -20,4 +20,4 @@ Gifs-from-Giphy - это одностраничный, адаптивный са
 * npm run start
 
 ## Исходники
-[Свёрстан по макету](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+[Свёрстан по макету](https://www.figma.com/file/Qltxlk8yU8LJ6MVVwdBLy3/YP-Competition%233?type=design&node-id=0-1&mode=design)
