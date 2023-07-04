@@ -1,20 +1,14 @@
 import { NavLink } from "react-router-dom";
-import logo from "../images/logo.svg";
 import ThemeToggleElement from "./ThemeToggleElement";
 import "./Header.css";
 
-export default function Header() {
-  const body = document.querySelector('.body');
-
-  const toggleThemeApp = () => {
-    body.classList.toggle("dark-mode");
-  };
+export default function Header({ isDarkMode, setIsDarkMode }) {
 
   return (
     <header className="header">
       <div className="header__first-line">
-        <img className="header__logo" src={logo} alt="logo" />
-        <ThemeToggleElement onClick={ toggleThemeApp } />
+        <span className="header__logo">LOGO</span>
+        <ThemeToggleElement state={ isDarkMode } setState={ setIsDarkMode } />
       </div>
       <nav className="header__second-line">
         <ul className="header__links">

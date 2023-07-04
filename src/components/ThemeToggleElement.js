@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
 import './ThemeToggleElement.css';
 
-export default function ThemeToggleElement({ onClick }){
+export default function ThemeToggleElement({ state, setState }){
+
+  function chengeCheckbox(){
+    setState( !state );
+  }
 
   return(
     <label className="checkbox">
-      <input class="checkbox__input" type="checkbox" onChange={ onClick }/>
-      <div class="checkbox__container" />
+      <input 
+        className="checkbox__input" 
+        type="checkbox" 
+        checked={ state } 
+        onChange={ chengeCheckbox }/>
+      <div className="checkbox__container" />
     </label>
   )
 }

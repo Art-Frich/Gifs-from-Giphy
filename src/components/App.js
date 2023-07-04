@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -10,8 +10,11 @@ const cntSearchGif = 9;
 const api = new Api( cntTrendsGif, cntSearchGif )
 
 function App() {
-  const [ isLoading, setIsLoading ] = useState( false ); //пригодится для loader-а
+  const [ isLoading, setIsLoading ] = useState( false );
   const [ isSuccessfulFetch, setIsSuccessfulFetch ] = useState( false ); 
+  const [ isDarkMode, setIsDarkMode ] = useState( window.matchMedia('(prefers-color-scheme: dark)').matches );
+
+  const body = document.querySelector('.body');
 
   async function getSearchGifs( query, saveData ) {
     getDataFromApi( api.getSearchGifs, saveData, query );
@@ -31,7 +34,6 @@ function App() {
       setIsLoading( true );
       setIsSuccessfulFetch( false ); //обнулить предыдущее состояние
       const data = await apiQuery({ query });
-      console.log( data )
       saveData( data.data );
       // setTotalPages(Math.ceil(data.pagination.total_count / data.pagination.count));
       setIsSuccessfulFetch( true )
@@ -43,8 +45,16 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    isDarkMode
+    ? body.classList.add("dark-mode")
+    : body.classList.remove("dark-mode")
+  }, [ isDarkMode ] )
+
   return <>
-    <Header />
+    <Header 
+      isDarkMode={ isDarkMode } 
+      setIsDarkMode={ setIsDarkMode } />
     <Main 
       getRandomGif={ getRandomGif }
       getTrendingGifs={ getTrendingGifs }

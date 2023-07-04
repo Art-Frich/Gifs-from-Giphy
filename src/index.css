@@ -1,11 +1,13 @@
 :root {
   --link-color: #000;
   --background-color: #fff;
+  --color: #000;
 }
 
 .dark-mode {
   --link-color: #fff;
   --background-color: #000;
+  --color: #fff;
 }
 
 .body {
