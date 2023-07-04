@@ -10,6 +10,7 @@ const Api = ( gifsState) => {
   };
 
   const getTrendingGifs = async ({ limit = gifsState.cntTrendsGifs, offset = 0 }) => {
+    console.log(gifsState)
     const url = `${baseUrl}/trending?api_key=${apiKey}&limit=${limit}&offset=${offset}`;
     return handleFetch(url);
   };

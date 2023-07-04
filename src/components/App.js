@@ -9,7 +9,8 @@ function App() {
   const [gifsState, setGifsState] = useState({
     cntTrendsGifs: 9,
     cntSearchGifs: 9,
-    cntsGifsOnPage: 9
+    cntsGifsOnPage: 9,
+    cntCardsOnPage: 9 // новое свойство
   });
 
   const [ isLoading, setIsLoading ] = useState( false );
@@ -71,7 +72,7 @@ function App() {
       getTrendingGifs={ getTrendingGifs }
       getSearchGifs={ getSearchGifs }
       isLoading={ isLoading }
-      gifsState={ gifsState }
+      cntCardsOnPage={ gifsState.cntCardsOnPage } // передача нового свойства как проп
     />
     <Footer />
   </>;
