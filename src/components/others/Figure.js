@@ -11,7 +11,7 @@ export default function Figure({ title, url }) {
   const imageStyle = {
     width: location.pathname === '/random-gif' ? '100%' : 'auto',
     maxWidth: location.pathname === '/random-gif'  ? '1280px' : '100%',
-    height: location.pathname === '/random-gif'  ? 'auto' : '300px',
+    height: location.pathname === '/random-gif'  ? 'auto' : 'none',
     maxHeight: location.pathname === '/random-gif' ? '960px' : '100%'
   };
 

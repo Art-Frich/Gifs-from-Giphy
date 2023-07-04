@@ -1,6 +1,6 @@
 .figure{
   margin: 0;
-  padding: 0 0 20px;
+  padding: 0 0 10px;
 
   display: flex;
   flex-direction: column;
@@ -15,6 +15,7 @@
 .figure__img{
   display: block;
   object-fit: contain;
+  height: 300px;
 }
 
 .figure__figcaption{
@@ -34,7 +35,8 @@
 }
 
 .figure__figcaption-container{
-  padding: 10px;
+  padding: 0 10px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,7 +63,6 @@
   }
 
   .figure{
-    padding: 0;
     gap: 10px;
   }
 }
@@ -69,5 +70,9 @@
 @media (max-width: 480px) {
   .figure__figcaption {
     font-size: 1.0em;
+  }
+
+  .figure__img{
+    max-height: 200px;
   }
 }

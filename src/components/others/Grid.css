@@ -1,7 +1,7 @@
 .grid{
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(calc((1280px - 25px * 2 ) / 3), max-content));
+  grid-template-columns: repeat(auto-fit, minmax(calc((1280px - 100px * 2 ) / 3), 1fr));
   gap: 25px;
 }
 
@@ -9,7 +9,7 @@
   .grid{
     grid-template-columns: repeat(
       auto-fit,
-      minmax(calc((100% - 20px * 2) / 2), max-content)
+      minmax(calc((100% - 20px * 2) / 2), 1fr)
     );
   }
 }
@@ -18,7 +18,7 @@
   .grid {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(calc((100% - 10px * 2) / 2), max-content)
+      minmax(calc((100% - 10px * 2) / 2), 1fr)
     );
   }
 }
@@ -27,7 +27,7 @@
   .grid {
     grid-template-columns: repeat(
       auto-fit,
-      minmax(calc(100% - 25px * 2), max-content)
+      minmax(calc(100% - 25px * 2), 1fr)
     );
   }
 }
