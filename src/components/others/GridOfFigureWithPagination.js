@@ -1,5 +1,6 @@
 import Grid from './Grid';
 import PaginationPanel from './PaginationPanel';
+import './GridOfFigureWithPagination.css';
 
 export default function GridOfFigureWithPagination({ gifs, currentPage, totalPages, onPageChange }) {
   return (

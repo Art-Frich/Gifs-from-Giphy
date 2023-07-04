@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Input.css';
 
 export default React.memo(function Input({ 

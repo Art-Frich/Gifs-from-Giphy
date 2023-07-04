@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const Api = ( gifsState) => {
   const apiKey = 'lMKZLF0RM4UWvP0AACmvzURIOnkMxD2y';
   const baseUrl = 'https://api.giphy.com/v1/gifs';
