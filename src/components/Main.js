@@ -69,7 +69,7 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isL
         {/* {/* // не знаю, стоит ли ключ давать одному элементу, но закинул - надо погуглить
         // по задумке он выберет или самое большое разрешение (раз одна гифка на весь экран) или оригинальное */}
         <Route path="/random-gif" element={ 
-          isError ? <Error /> : !selectedGif.images ? <Loader /> :
+          !selectedGif.images ? <Loader /> :
           <Figure 
             title={ selectedGif.title } 
             url={ selectedGif.images.hd?.url ?? selectedGif.images.original.url } 
