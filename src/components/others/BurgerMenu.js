@@ -9,19 +9,6 @@ export default function BurgerMenu({gifsState, setGifsState}) {
     setIsOpen(!isOpen);
   };
 
-  function UlItem({ title, onChange, value}){
-    return(
-    <li className="burger-menu__item">
-      <span className="burger-menu__item-title">{ title }</span>
-      <Input
-        placeholder={'9?'} 
-        onChange={ onChange }
-        value={ value }
-        type='number'
-      />
-    </li>)
-  }
-
   return (
     <div className={ `burger-menu ${isOpen ? 'burger-menu_open' : ''}` }>
       <div className="burger-menu__icon" onClick={handleToggle}>
@@ -30,12 +17,42 @@ export default function BurgerMenu({gifsState, setGifsState}) {
         <div className="burger-menu__line burger-menu__line_type_bottom" />
       </div>
       <ul className="burger-menu__dropdown">
-        <UlItem title={ "Trend gifs" } element={ 'cntTrendsGifs' } value={ gifsState.cntTrendsGifs } 
-        onChange={(e) => setGifsState( prevState => ({ ...prevState, cntTrendsGifs: Number(e.target.value)})) }/>
-        <UlItem title={ "Gifs in search" } element={ 'cntSearchGifs' } value={ gifsState.cntSearchGifs } 
-        onChange={(e) => setGifsState( prevState => ({ ...prevState, cntSearchGifs: Number(e.target.value)})) }/>
-        <UlItem title={ "Gifs on page" } element={ 'cntsGifsOnPage' } value={ gifsState.cntsGifsOnPage } 
-        onChange={(e) => setGifsState( prevState => ({ ...prevState, cntsGifsOnPage: Number(e.target.value)})) }/>
+        <li className="burger-menu__item">
+          <span className="burger-menu__item-title">{ "Количество гивок по запросу" }</span>
+          <Input
+            placeholder={'9?'} 
+            onChange={ (e) => setGifsState( prevState => ({ 
+              ...prevState, cntSearchGifs: Number(e.target.value) > 0 && Number(e.target.value) < 51 
+                ? Number(e.target.value) : 50
+            })) }
+            value={ gifsState.cntSearchGifs }
+            type='number'
+          />
+        </li>
+        <li className="burger-menu__item">
+          <span className="burger-menu__item-title">{ "Количество трендовых гивок"  }</span>
+          <Input
+            placeholder={'9?'} 
+            onChange={ (e) => setGifsState( prevState => ({ 
+              ...prevState, cntTrendsGifs: Number(e.target.value) > 0 && Number(e.target.value) < 51 
+                ? Number(e.target.value) : 50
+            })) }
+            value={ gifsState.cntTrendsGifs }
+            type='number'
+          />
+        </li>
+        <li className="burger-menu__item">
+          <span className="burger-menu__item-title">{ "Количество гивок на странице" }</span>
+          <Input
+            placeholder={'9?'} 
+            onChange={ (e) => setGifsState( prevState => ({ 
+              ...prevState, cntsGifsOnPage: Number(e.target.value) > 0 && Number(e.target.value) < 51 
+                ? Number(e.target.value) : 50
+            })) }
+            value={ gifsState.cntsGifsOnPage }
+            type='number'
+          />
+        </li>
       </ul>
     </div>
   );

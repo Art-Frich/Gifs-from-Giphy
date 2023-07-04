@@ -6,7 +6,7 @@ import Figure from './others/Figure';
 import Loader from './others/Loader';
 import './Main.css';
 
-export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isLoading }) {
+export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isLoading, gifsState }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [query, setQuery] = useState('');
@@ -33,7 +33,7 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isL
     if ( location.pathname === '/random-gif' ){ getRandomGif( setSelectedGif ); };
     if ( location.pathname === '/trends' ){ getTrendingGifs( setTrendGifs ); };
   // eslint-disable-next-line
-  }, [ location.pathname ]);
+  }, [ location.pathname, gifsState ]);
 
   return (
     <main className="main">

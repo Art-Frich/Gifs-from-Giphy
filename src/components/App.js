@@ -71,6 +71,7 @@ function App() {
       getTrendingGifs={ getTrendingGifs }
       getSearchGifs={ getSearchGifs }
       isLoading={ isLoading }
+      gifsState={ gifsState }
     />
     <Footer />
   </>;
