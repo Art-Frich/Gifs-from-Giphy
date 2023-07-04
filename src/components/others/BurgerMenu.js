@@ -21,7 +21,7 @@ export default function BurgerMenu({gifsState, setGifsState}) {
           <span className="burger-menu__item-title">{ "Количество трендовых гивок"  }</span>
           <Input
             placeholder={'9?'} 
-            onChange={ (e) => setGifsState( prevState => ({ ...prevState, cntTrendsGifs: e.target.value})) }
+            onChange={ (e) => setGifsState( prevState => ({ ...prevState, cntTrendsGifs: Number(e.target.value)})) }
             value={ gifsState.cntTrendsGifs }
           />
         </li>
@@ -30,7 +30,7 @@ export default function BurgerMenu({gifsState, setGifsState}) {
           <span className="burger-menu__item-title">{ "Количество гивок по запросу" }</span>
           <Input
             placeholder={'9?'} 
-            onChange={ (e) => setGifsState( prevState => ({ ...prevState, cntSearchGifs: e.target.value})) }
+            onChange={ (e) => setGifsState( prevState => ({ ...prevState, cntSearchGifs: Number(e.target.value)})) }
             value={ gifsState.cntSearchGifs }
           />
         </li>
@@ -39,7 +39,7 @@ export default function BurgerMenu({gifsState, setGifsState}) {
           <span className="burger-menu__item-title">{ "Количество гивок на странице" }</span>
           <Input
             placeholder={'9?'} 
-            onChange={ (e) => setGifsState( prevState => ({ ...prevState, cntsGifsOnPage: e.target.value})) }
+            onChange={ (e) => setGifsState( prevState => ({ ...prevState, cntsGifsOnPage: Number(e.target.value)})) }
             value={ gifsState.cntsGifsOnPage } 
           />
         </li>

@@ -3,7 +3,7 @@
   width: 100%;
 
   /* двигаем текст внутри input от краёв */
-  padding: 2px, 8px;
+  padding: 2px 8px;
   box-sizing: border-box;
 
   font-size: 22px;

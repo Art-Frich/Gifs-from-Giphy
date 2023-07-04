@@ -17,7 +17,7 @@ function App() {
   const [ isDarkMode, setIsDarkMode ] = useState( window.matchMedia('(prefers-color-scheme: dark)').matches );
 
   const body = document.querySelector('.body');
-  const api = new Api( gifsState );
+  let api = Api(gifsState)
 
   async function getSearchGifs( query, saveData ) {
     getDataFromApi( api.getSearchGifs, saveData, query );
@@ -54,6 +54,10 @@ function App() {
     : body.classList.remove("dark-mode")
   // eslint-disable-next-line
   }, [ isDarkMode ] )
+
+  useEffect(()=>{
+    api = Api(gifsState)
+  })
 
   return <>
     <Header 
