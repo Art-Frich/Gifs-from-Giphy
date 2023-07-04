@@ -1,10 +1,11 @@
 import Grid from './Grid';
+import PaginationPanel from './PaginationPanel';
 
-export default function GridOfFigureWithPagination({ gifs }) {
+export default function GridOfFigureWithPagination({ gifs, currentPage, totalPages, onPageChange }) {
   return (
-    <div>
-      <Grid gifs={ gifs } />
-      {/* другие элементы */}
-    </div>
+    <section className='grid-of-figure-with-pagination'>
+      <Grid gifs={gifs} />
+      <PaginationPanel currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange} />
+    </section>
   );
 }

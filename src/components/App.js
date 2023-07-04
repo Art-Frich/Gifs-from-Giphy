@@ -73,6 +73,7 @@ function App() {
       getSearchGifs={ getSearchGifs }
       isLoading={ isLoading }
       gifsState={ gifsState }
+      isSuccessfulFetch={ isSuccessfulFetch }
     />
     <Footer />
   </>;
