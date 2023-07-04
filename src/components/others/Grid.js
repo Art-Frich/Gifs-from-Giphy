@@ -1,8 +1,8 @@
-import React from 'react';
 import Figure from './Figure.js';
+
 import './Grid.css';
 
-export default React.memo(function Grid({ gifs }) {
+export default function Grid({ gifs }) {
   const gridElements = gifs?.map((gif) => (
     <Figure
       key={ gif.id }
@@ -12,4 +12,4 @@ export default React.memo(function Grid({ gifs }) {
   ));
 
   return <div className="grid">{gridElements}</div>;
-})
+}
