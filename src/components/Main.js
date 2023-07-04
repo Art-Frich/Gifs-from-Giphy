@@ -4,11 +4,9 @@ import Searcher from './others/Searcher';
 import GridOfFigureWithPagination from './others/GridOfFigureWithPagination';
 import Figure from './others/Figure';
 import Loader from './others/Loader';
-import Error from './others/Error';
-import queryString from 'query-string'; // библиотека для работы с параметрами URL
 import './Main.css';
 
-export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isLoading, isError, cntCardsOnPage }) {
+export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isLoading, gifsState }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [query, setQuery] = useState('');
@@ -19,30 +17,23 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isL
 
   const location = useLocation();
 
-  // получение параметров URL
-  const queryParams = queryString.parse(location.search);
-  const searchQuery = queryParams.q;
-  const page = parseInt(queryParams.page) || 0;
-
   async function handlePageChange( newPage ) {
-    // обновление URL с новыми параметрами
-    const newQueryParams = { ...queryParams, page: newPage };
-    const newSearch = queryString.stringify(newQueryParams);
-    window.history.pushState(null, '', `${location.pathname}?${newSearch}`);
+    // setCurrentPage(newPage);
+    // try {
+    //   const data = searchQuery
+    //     ? await api.searchGifs(searchQuery, 25, newPage * 25)
+    //     : await api.getTrendingGifs(25, newPage * 25);
+    //   setTrendGifs(data.data);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   }
 
-  useEffect(() => {
-    // установка состояния из параметров URL
-    if (searchQuery) {
-      setQuery(searchQuery);
-      getSearchGifs(searchQuery, setSearchGifs);
-    }
-    setCurrentPage(page);
-
+  useEffect( () => {
     if ( location.pathname === '/random-gif' ){ getRandomGif( setSelectedGif ); };
     if ( location.pathname === '/trends' ){ getTrendingGifs( setTrendGifs ); };
   // eslint-disable-next-line
-  }, [ location.pathname ]);
+  }, [ location.pathname, gifsState ]);
 
   return (
     <main className="main">
@@ -54,31 +45,31 @@ export default function Main({ getTrendingGifs, getRandomGif, getSearchGifs, isL
             query={ query }
             setGifs={ setSearchGifs }
           />
-          { isError ? <Error /> : isLoading 
+          { isLoading 
           ? <Loader /> 
           : <GridOfFigureWithPagination
-            gifs={ searchGifs.slice(currentPage * cntCardsOnPage, (currentPage + 1) * cntCardsOnPage) }
-            currentPage={currentPage}
-            totalPages={Math.ceil(searchGifs.length / cntCardsOnPage)}
-            onPageChange={handlePageChange}
+            gifs={ searchGifs }
+            // currentPage={currentPage}
+            // totalPages={totalPages}
+            // onPageChange={handlePageChange}
           />}
         </> } />
 
         <Route path="/trends" element={
-          isError ? <Error /> : isLoading 
+          isLoading 
           ? <Loader /> 
           : <GridOfFigureWithPagination
-            gifs={ trendGifs.slice(currentPage * cntCardsOnPage, (currentPage + 1) * cntCardsOnPage) }
-            currentPage={currentPage}
-            totalPages={Math.ceil(trendGifs.length / cntCardsOnPage)}
-            onPageChange={handlePageChange}
+            gifs={ trendGifs }
+            // currentPage={currentPage}
+            // totalPages={totalPages}
+            // onPageChange={handlePageChange}
           />
         } />
 
         {/* {/* // не знаю, стоит ли ключ давать одному элементу, но закинул - надо погуглить
         // по задумке он выберет или самое большое разрешение (раз одна гифка на весь экран) или оригинальное */}
         <Route path="/random-gif" element={ 
-          isLoading ? <Loader /> : !selectedGif ? <Error /> :
+          isError ? <Error /> : !selectedGif.images ? <Loader /> :
           <Figure 
             title={ selectedGif.title } 
             url={ selectedGif.images.hd?.url ?? selectedGif.images.original.url } 
