@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Gifs-from-Giphy/static/css/main.91dd524f.css",
+    "main.js": "/Gifs-from-Giphy/static/js/main.f2bc0024.js",
+    "static/media/loupe.svg": "/Gifs-from-Giphy/static/media/loupe.7a86dd3286120283ec92.svg",
+    "static/media/ready.svg": "/Gifs-from-Giphy/static/media/ready.b5c8c7763c79f1c05df072e75155d622.svg",
+    "static/media/cross.svg": "/Gifs-from-Giphy/static/media/cross.0207253d348248ac0b8b.svg",
+    "static/media/Share.svg": "/Gifs-from-Giphy/static/media/Share.98feb850db6a14bffaeff62708591811.svg",
+    "index.html": "/Gifs-from-Giphy/index.html",
+    "main.91dd524f.css.map": "/Gifs-from-Giphy/static/css/main.91dd524f.css.map",
+    "main.f2bc0024.js.map": "/Gifs-from-Giphy/static/js/main.f2bc0024.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91dd524f.css",
+    "static/js/main.f2bc0024.js"
+  ]
+}
