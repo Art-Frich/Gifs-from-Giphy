@@ -1,4 +1,4 @@
-## Проект «Gifs-from-Giphy»
+## [Проект «Gifs-from-Giphy](https://art-frich.github.io/Gifs-from-Giphy/)»
 
 ## Разработано Art Frich и Denis Cherezov
 
