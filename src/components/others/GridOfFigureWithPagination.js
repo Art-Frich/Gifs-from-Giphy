@@ -4,16 +4,15 @@ import PaginationPanel from './PaginationPanel';
 import './GridOfFigureWithPagination.css';
 
 export default function GridOfFigureWithPagination({ gifs, gifsState }) {
-
-  const [ curPageIndex, setCurPageIndex ] = useState( 0 );
-  const [ cntPages, setCntPages ] = useState( 0 );
+  const [curPageIndex, setCurPageIndex] = useState(0);
+  const [cntPages, setCntPages] = useState(0);
 
   const setPrevPage = () => {
     if (curPageIndex > 0) {
       setCurPageIndex(curPageIndex - 1);
     }
   };
-  
+
   const setNextPage = () => {
     if (curPageIndex < cntPages - 1) {
       setCurPageIndex(curPageIndex + 1);
@@ -21,22 +20,24 @@ export default function GridOfFigureWithPagination({ gifs, gifsState }) {
   };
 
   useEffect(() => {
-    setCntPages( Math.ceil( gifs.length / gifsState.cntGifsOnPage ) )
-  // eslint-disable-next-line
-  }, [gifsState])
+    setCntPages(() => Math.ceil(gifs.length / gifsState.cntGifsOnPage));
+    console.log(gifsState.cntGifsOnPage, cntPages, gifs.length);
+  }, [gifsState, setCntPages, gifs, cntPages]);
 
   return (
-    <section className='grid-of-figure-with-pagination'>
-      <Grid gifs={gifs} curPageIndex={ curPageIndex } gifsOnPage={ gifsState.cntGifsOnPage }/>
-      {cntPages 
-      ? <PaginationPanel 
-        cntPages={ cntPages } 
-        curPageIndex={ curPageIndex }
-        setNextPage={ setNextPage }
-        setPrevPage={ setPrevPage }
-        setCurPageIndex={ setCurPageIndex }
-        /> 
-      : <></>}
+    <section className="grid-of-figure-with-pagination">
+      <Grid gifs={gifs} curPageIndex={curPageIndex} gifsOnPage={gifsState.cntGifsOnPage} />
+      {cntPages ? (
+        <PaginationPanel
+          cntPages={cntPages}
+          curPageIndex={curPageIndex}
+          setNextPage={setNextPage}
+          setPrevPage={setPrevPage}
+          setCurPageIndex={setCurPageIndex}
+        />
+      ) : (
+        <></>
+      )}
     </section>
   );
 }

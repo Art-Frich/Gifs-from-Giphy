@@ -7,63 +7,84 @@ import Loader from './others/Loader';
 import Error from './Error';
 import './Main.css';
 
-export default function Main({ 
-  getTrendingGifs, getRandomGif, getSearchGifs, isLoading, gifsState, isSuccessfulFetch
+export default function Main({
+  getTrendingGifs,
+  getRandomGif,
+  getSearchGifs,
+  isLoading,
+  gifsState,
+  isSuccessfulFetch,
+  api,
 }) {
   // const [currentPage, setCurrentPage] = useState(0);
   // const [totalPages, setTotalPages] = useState(0);
   const [query, setQuery] = useState('');
 
-  const [ selectedGif, setSelectedGif ] = useState( null );
-  const [ trendGifs, setTrendGifs ] = useState( [] );
-  const [ searchGifs, setSearchGifs ] = useState( [] );
+  const [selectedGif, setSelectedGif] = useState(null);
+  const [trendGifs, setTrendGifs] = useState([]);
+  const [searchGifs, setSearchGifs] = useState([]);
 
   const location = useLocation();
 
-  useEffect( () => {
-    if ( location.pathname === '/random-gif' ){ getRandomGif( setSelectedGif ); };
-    if ( location.pathname === '/trends' ){ getTrendingGifs( setTrendGifs ); };
-  // eslint-disable-next-line
-  }, [ location.pathname, gifsState ]);
+  useEffect(() => {
+    if (location.pathname === '/random-gif') {
+      getRandomGif(setSelectedGif);
+    }
+    if (location.pathname === '/trends') {
+      getTrendingGifs(setTrendGifs);
+    }
+    // eslint-disable-next-line
+  }, [location.pathname, api.current]);
 
   return (
     <main className="main">
       <Routes>
-        <Route path="/search" element={<>
-          <Searcher 
-            onSearch={ getSearchGifs } 
-            setQuery={ setQuery } 
-            query={ query }
-            setGifs={ setSearchGifs }
-          />
-          { isLoading 
-          ? <Loader /> 
-          : !isSuccessfulFetch && !searchGifs ? <Error /> 
-          : <GridOfFigureWithPagination
-            gifs={ searchGifs }
-            gifsState={ gifsState }
-          />}
-        </> } />
+        <Route
+          path="/search"
+          element={
+            <>
+              <Searcher onSearch={getSearchGifs} setQuery={setQuery} query={query} setGifs={setSearchGifs} />
+              {isLoading ? (
+                <Loader />
+              ) : !isSuccessfulFetch && !searchGifs ? (
+                <Error />
+              ) : (
+                <GridOfFigureWithPagination gifs={searchGifs} gifsState={gifsState} />
+              )}
+            </>
+          }
+        />
 
-        <Route path="/trends" element={
-          isLoading 
-          ? <Loader /> 
-          : !isSuccessfulFetch ? <Error /> 
-          : <GridOfFigureWithPagination
-            gifs={ trendGifs }
-            gifsState={ gifsState }
-          />
-        } />
+        <Route
+          path="/trends"
+          element={
+            isLoading ? (
+              <Loader />
+            ) : !isSuccessfulFetch ? (
+              <Error />
+            ) : (
+              <GridOfFigureWithPagination gifs={trendGifs} gifsState={gifsState} />
+            )
+          }
+        />
 
-        <Route path="/random-gif" element={ 
-          isLoading ? <Loader /> : !selectedGif ? <Error /> :
-          <Figure 
-            title={ selectedGif.title } 
-            url={ selectedGif.images.hd?.url ?? selectedGif.images.original.url } 
-            key={ selectedGif.id }
-          />
-        } />
-        <Route path="*" element={ <Navigate to="/search" /> } />
+        <Route
+          path="/random-gif"
+          element={
+            isLoading ? (
+              <Loader />
+            ) : !selectedGif ? (
+              <Error />
+            ) : (
+              <Figure
+                title={selectedGif.title}
+                url={selectedGif.images.hd?.url ?? selectedGif.images.original.url}
+                key={selectedGif.id}
+              />
+            )
+          }
+        />
+        <Route path="*" element={<Navigate to="/search" />} />
       </Routes>
     </main>
   );
